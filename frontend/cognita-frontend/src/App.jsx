@@ -4,6 +4,7 @@ import { ArrowUpIcon, SparklesIcon } from '@heroicons/react/24/outline';
 import './App.css';
 import './index.css';
 import sendButtonIcon from './assets/send_button.svg';
+import Logo from './assets/logo_2.png';
 
 // Main App component
 function App() {
@@ -70,9 +71,11 @@ function App() {
       {/* Header */}
       <header>
         <div className="flex items-center">      
-            <h1 className="text-lg sm:text-xl font-semibold text-white">
-              Cognita
-            </h1>
+            <div className="flex items-center space-x-2 gap-1" style={{ paddingTop: '2rem' }}>
+              <div className="w-2 h-2 bg-white rounded-full animate-bounce"></div>
+              <div className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+              <div className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+            </div>
         </div>
       </header>
 
@@ -91,10 +94,11 @@ function App() {
                 animate={{ opacity: 1, y: 0 }}
                 className="flex items-center justify-center min-h-[60vh]"
               >
-                <div className="text-center max-w-2xl px-10">
-                  <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4 sm:mb-6">
-                    Welcome to Cognita
-                  </h2>
+                <div className="text-center max-w-2xl"style={{ paddingLeft: '1rem', paddingRight: '1rem' }}>
+                  <img
+                  src={Logo} alt="logo" style={{ paddingLeft: '5rem'}} className="h-25 md:h-36 lg:h-40 flex items-center justify-center"
+                  >
+                  </img>
                   <p className="text-gray-400 text-lg sm:text-xl leading-relaxed mb-6">
                     Ask me anything and I'll help you with your questions, tasks, and creative projects.
                   </p>
