@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from dotenv import load_dotenv
 import os
 from transformers import AutoTokenizer, AutoModelForCausalLM
@@ -7,6 +8,7 @@ import torch
 load_dotenv()
 
 app = Flask(__name__)
+CORS(app)
 
 # Load model and processor (done once on startup)
 MODEL_NAME = "Qwen/Qwen2-0.5B-Instruct"
