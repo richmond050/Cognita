@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpIcon, SparklesIcon } from '@heroicons/react/24/outline';
 import './App.css';
 import './index.css';
+import sendButtonIcon from './assets/send_button.svg';
 
 // Main App component
 function App() {
@@ -60,30 +61,28 @@ function App() {
   const isSubmitDisabled = !input.trim() || isLoading;
 
   return (
-    <div className="flex flex-col h-screen w-full bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white overflow-hidden">
+    <div className="flex flex-col h-screen w-full bg-[#161618] text-white overflow-hidden items-center" style={{ 
+      maxWidth: '100vw', 
+      overflowX: 'hidden',
+      scrollbarWidth: 'none',
+      msOverflowStyle: 'none'
+    }}>
       {/* Header */}
-      <header className="flex items-center justify-between px-4 sm:px-6 py-4 border-b border-gray-700/50 bg-gray-900/30 backdrop-blur-sm">
-        <div className="flex items-center space-x-3">
-          <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-            <SparklesIcon className="w-5 h-5 text-white" />
-          </div>
-          <div>
+      <header>
+        <div className="flex items-center">      
             <h1 className="text-lg sm:text-xl font-semibold text-white">
               Cognita
             </h1>
-            <p className="text-xs text-gray-400 hidden sm:block">
-              AI Assistant
-            </p>
-          </div>
-        </div>
-        <div className="text-xs text-gray-500">
-          Online
         </div>
       </header>
 
       {/* Main Content */}
-      <main className="flex-1 overflow-y-auto">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
+      <main className="flex-1 overflow-y-auto fl" style={{ 
+        scrollbarWidth: 'none', 
+        msOverflowStyle: 'none',
+        WebkitScrollbar: { display: 'none' }
+      }}>
+        <div className="max-w-4xl mx-auto px-2 sm:px-6 py-6 sm:py-8" style={{ maxWidth: '100vw', overflowX: 'hidden' }}>
           {/* Messages Area */}
           <div className="space-y-4 sm:space-y-6">
             {messages.length === 0 && (
@@ -92,20 +91,13 @@ function App() {
                 animate={{ opacity: 1, y: 0 }}
                 className="flex items-center justify-center min-h-[60vh]"
               >
-                <div className="text-center max-w-2xl px-4">
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-r from-blue-500 to-purple-600 rounded-3xl flex items-center justify-center mx-auto mb-6 sm:mb-8 shadow-2xl">
-                    <SparklesIcon className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
-                  </div>
+                <div className="text-center max-w-2xl px-10">
                   <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4 sm:mb-6">
                     Welcome to Cognita
                   </h2>
                   <p className="text-gray-400 text-lg sm:text-xl leading-relaxed mb-6">
-                    Your intelligent AI assistant. Ask me anything and I'll help you with your questions, tasks, and creative projects.
+                    Ask me anything and I'll help you with your questions, tasks, and creative projects.
                   </p>
-                  <div className="flex items-center justify-center space-x-2 text-sm text-gray-500">
-                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                    <span>Ready to help</span>
-                  </div>
                 </div>
               </motion.div>
             )}
@@ -118,32 +110,35 @@ function App() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: -20, scale: 0.95 }}
                   transition={{ duration: 0.3, ease: "easeOut" }}
-                  className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
+                  className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'} py-2`}
                 >
-                  <div className={`max-w-2xl ${message.role === 'user' ? 'ml-auto' : 'mr-auto'}`}>
-                    <div className={`flex items-start gap-3 ${
-                      message.role === 'user' ? 'flex-row-reverse' : 'flex-row'
-                    }`}>
-                      {/* Avatar */}
-                      <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-semibold flex-shrink-0 ${
-                        message.role === 'user' 
-                          ? 'bg-gradient-to-r from-blue-500 to-blue-600 text-white' 
-                          : 'bg-gradient-to-r from-gray-600 to-gray-700 text-white'
-                      }`}>
-                        {message.role === 'user' ? 'U' : 'AI'}
-                      </div>
-                      
-                      {/* Message Content */}
-                      <div className={`px-4 py-3 rounded-2xl shadow-sm ${
-                        message.role === 'user' 
-                          ? 'bg-gradient-to-r from-blue-500 to-blue-600 text-white' 
-                          : 'bg-gray-800/90 backdrop-blur-sm border border-gray-700/50 text-gray-100'
-                      }`}>
-                        <div className="prose prose-invert max-w-none">
-                          <p className="text-sm leading-relaxed whitespace-pre-wrap">
-                            {message.content}
-                          </p>
-                        </div>
+                  <div className={`max-w-4xl sm:max-w-4xl max-w-[90vw] px-2 sm:px-4 md:px-6 ${message.role === 'user' ? 'ml-auto' : 'mr-auto'}`} style={{ 
+                    marginTop: '0.75rem', 
+                    marginBottom: '0.75rem'
+                  }}>
+                    {/* Message Content */}
+                    <div className={`${
+                      message.role === 'user' 
+                        ? 'rounded-full bg-[#242628] text-white'  
+                        : 'text-white'
+                    }`} style={message.role === 'user' ? { 
+                      paddingLeft: '1rem', 
+                      paddingRight: '1rem', 
+                      paddingTop: '0.75rem', 
+                      paddingBottom: '0.75rem',
+                      wordWrap: 'break-word',
+                      overflowWrap: 'break-word'
+                    } : { 
+                      paddingTop: '0.5rem',
+                      paddingBottom: '0.5rem',
+                      lineHeight: '1.6',
+                      wordWrap: 'break-word',
+                      overflowWrap: 'break-word'
+                    }}>
+                      <div className="prose prose-invert max-w-none">
+                        <p className="text-sm leading-relaxed whitespace-pre-wrap">
+                          {message.content}
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -155,22 +150,24 @@ function App() {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="flex justify-start"
+                className="flex justify-start py-2"
               >
-                <div className="max-w-2xl mr-auto">
-                  <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-full bg-gradient-to-r from-gray-600 to-gray-700 flex items-center justify-center flex-shrink-0">
-                      <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                    </div>
-                    <div className="bg-gray-800/90 backdrop-blur-sm border border-gray-700/50 px-4 py-3 rounded-2xl shadow-sm">
-                      <div className="flex items-center space-x-2">
-                        <div className="flex space-x-1">
-                          <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
-                          <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                          <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
-                        </div>
-                        <span className="text-gray-400 text-sm">Thinking...</span>
+                <div className="max-w-3xl sm:max-w-3xl max-w-[90vw] px-2 sm:px-4 md:px-6 mr-auto" style={{ 
+                  marginTop: '0.75rem', 
+                  marginBottom: '0.75rem'
+                }}>
+                  <div className="text-gray-200" style={{ 
+                    paddingTop: '0.5rem',
+                    paddingBottom: '0.5rem',
+                    lineHeight: '1.6'
+                  }}>
+                    <div className="flex items-center space-x-2 gap-2">
+                      <div className="flex space-x-1 gap-1">
+                        <div className="w-2 h-2 bg-white rounded-full animate-bounce"></div>
+                        <div className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                        <div className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
                       </div>
+                      <span className="text-gray-200 text-sm"> Thinking...</span>
                     </div>
                   </div>
                 </div>
@@ -184,33 +181,32 @@ function App() {
       </main>
 
       {/* Input Area */}
-      <div className="border-t border-gray-700/50 bg-gray-900/40 backdrop-blur-md">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 py-4 sm:py-5">
-          <form onSubmit={handleSubmit} className="relative">
-            <div className="relative">
-              <input
-                ref={inputRef}
-                type="text"
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                onKeyDown={handleKeyDown}
-                placeholder="Message Cognita..."
-                disabled={isLoading}
-                className="w-full px-5 py-4 pr-14 bg-gray-800/70 backdrop-blur-sm border border-gray-600/50 rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all duration-300 text-sm disabled:opacity-50 disabled:cursor-not-allowed shadow-lg"
-                maxLength={2000}
-              />
-              
-              {/* Send Button */}
-              <button
-                type="submit"
-                disabled={isSubmitDisabled}
-                className="absolute right-2 top-1/2 transform -translate-y-1/2 p-2 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 disabled:from-gray-600 disabled:to-gray-700 disabled:cursor-not-allowed rounded-xl transition-all duration-200 hover:scale-105 disabled:hover:scale-100 focus:outline-none focus:ring-2 focus:ring-blue-500/50 shadow-lg"
-              >
-                <ArrowUpIcon className="w-4 h-4 text-white" />
-              </button>
-            </div>
-          </form>
-        </div>
+      <div className="w-full max-w-md md:max-w-lg lg:max-w-2xl px-4 sm:px-6 flex justify-center" style={{ paddingBottom: '1rem' }}>
+        <form onSubmit={handleSubmit} className="relative w-full">
+          <div className="flex items-center border border-gray-500/30 rounded-full bg-[#242628] h-12 px-12" style={{ paddingLeft: '1rem', paddingRight: '1rem' }}>
+            <input
+              ref={inputRef}
+              type="text"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              onKeyDown={handleKeyDown}
+              placeholder="What do you want to know?"
+              disabled={isLoading}
+              className="flex-1 bg-transparent text-white placeholder-gray-400 focus:outline-none focus:ring-0 focus:border-none focus:shadow-none border-none outline-none"
+              style={{ outline: 'none', boxShadow: 'none' }}
+              maxLength={2000}
+            />
+            
+            {/* Send Button */}
+            <button
+              type="submit"
+              disabled={isSubmitDisabled}
+              className="ml-3 p-1"
+            >
+              <img src={sendButtonIcon} alt="Send" className="w-6 h-6" />
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   );
