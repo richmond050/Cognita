@@ -3,8 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpIcon, SparklesIcon } from '@heroicons/react/24/outline';
 import './App.css';
 import './index.css';
-import sendButtonIcon from "@/assets/send_button.svg"; 
-import Logo from '@/assets/logo_2.png';
+// Assets are now in public folder and referenced directly
 
 // ... rest of your code stays the same
 
@@ -98,7 +97,7 @@ function App() {
               >
                 <div className="text-center max-w-2xl"style={{ paddingLeft: '1rem', paddingRight: '1rem' }}>
                   <img
-                  src={Logo} alt="logo" style={{ paddingLeft: '5rem'}} className="h-25 md:h-36 lg:h-40 flex items-center justify-center"
+                  src="/assets/logo_2.png" alt="logo" style={{ paddingLeft: '5rem'}} className="h-25 md:h-36 lg:h-40 flex items-center justify-center"
                   >
                   </img>
                   <p className="text-gray-400 text-lg sm:text-xl leading-relaxed mb-6">
@@ -209,7 +208,7 @@ function App() {
               disabled={isSubmitDisabled}
               className="ml-3 p-1"
             >
-              <img src={sendButtonIcon} alt="Send" className="w-6 h-6" />
+              <img src="/assets/send_button.svg" alt="Send" className="w-6 h-6" />
             </button>
           </div>
         </form>
