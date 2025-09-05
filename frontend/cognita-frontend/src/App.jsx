@@ -3,8 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpIcon, SparklesIcon } from '@heroicons/react/24/outline';
 import './App.css';
 import './index.css';
-import sendButtonIcon from '/src/assets/send_button.svg';
-import Logo from '/src/assets/logo_2.png';
+import sendButtonIcon from "./assets/send_button.svg"; 
+import Logo from './assets/logo_2.png';
 
 // ... rest of your code stays the same
 
