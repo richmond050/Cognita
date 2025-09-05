@@ -72,9 +72,9 @@ function App() {
       <header>
         <div className="flex items-center">      
             <div className="flex items-center space-x-2 gap-1" style={{ paddingTop: '2rem' }}>
-              <div className="w-2 h-2 bg-white rounded-full animate-bounce"></div>
-              <div className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-              <div className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+              <div className="w-2 h-2 bg-white rounded-full"></div>
+              <div className="w-2 h-2 bg-white rounded-full"></div>
+              <div className="w-2 h-2 bg-white rounded-full"></div>
             </div>
         </div>
       </header>
