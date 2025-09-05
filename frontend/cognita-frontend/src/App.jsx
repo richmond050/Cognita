@@ -1,8 +1,11 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowUpIcon, SparklesIcon } from '@heroicons/react/24/outline';
 import './App.css';
 import './index.css';
+
+// Google Drive image URLs
+const LOGO_IMAGE_URL = "https://i.imgur.com/uMb7K71.png";
+const SEND_BUTTON_URL = "https://i.imgur.com/r7TU8nv.png";
 
 // Main App component
 function App() {
@@ -94,7 +97,7 @@ function App() {
               >
                 <div className="text-center max-w-2xl"style={{ paddingLeft: '1rem', paddingRight: '1rem' }}>
                   <img
-                  src="/logo_2.png" alt="logo" style={{ paddingLeft: '5rem'}} className="h-25 md:h-36 lg:h-40 flex items-center justify-center"
+                  src={LOGO_IMAGE_URL} alt="logo" style={{ paddingLeft: '5rem'}} className="h-25 md:h-36 lg:h-40 flex items-center justify-center"
                   >
                   </img>
                   <p className="text-gray-400 text-lg sm:text-xl leading-relaxed mb-6">
@@ -205,7 +208,7 @@ function App() {
               disabled={isSubmitDisabled}
               className="ml-3 p-1"
             >
-              <img src="/send_button.svg" alt="Send" className="w-6 h-6" />
+              <img src={SEND_BUTTON_URL} alt="Send" className="w-6 h-6" />
             </button>
           </div>
         </form>
