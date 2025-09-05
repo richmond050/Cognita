@@ -15,7 +15,7 @@ A modern, full-stack AI chat application built with React and Flask, powered by 
 
 ## 🚀 Live Demo
 
-- **Frontend**: [Deployed on Vercel](https://your-vercel-app.vercel.app)
+- **Frontend**: [Deployed on Vercel](https://cognita-three.vercel.app/)
 - **Backend API**: [Deployed on Hugging Face Spaces](https://richmond050-cognita.hf.space)
 
 ## 🏗️ Architecture
